@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextStep Docs — Політика конфіденційності</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #141720;
+    --border: #1f2435;
+    --accent: #4f6ef7;
+    --accent2: #7c3aed;
+    --text: #e8eaf2;
+    --muted: #6b7280;
+    --green: #22c55e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Golos Text', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Background grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(79,110,247,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(79,110,247,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .glow {
+    position: fixed;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .glow-1 { top: -200px; left: -100px; background: rgba(79,110,247,0.12); }
+  .glow-2 { bottom: -200px; right: -100px; background: rgba(124,58,237,0.10); }
+
+  header {
+    position: relative; z-index: 1;
+    padding: 32px 24px 0;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+
+  .logo-text {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  main {
+    position: relative; z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(79,110,247,0.12);
+    border: 1px solid rgba(79,110,247,0.25);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #fff 40%, rgba(255,255,255,0.5));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero p {
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .updated::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--green);
+  }
+
+  /* Summary cards */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 56px;
+  }
+
+  .summary-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .summary-card:hover { border-color: rgba(79,110,247,0.4); }
+  .summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .summary-card:hover::before { opacity: 1; }
+
+  .card-icon { font-size: 24px; margin-bottom: 10px; }
+  .card-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
+  .card-value { font-size: 14px; font-weight: 500; color: var(--text); }
+
+  /* Sections */
+  .section {
+    margin-bottom: 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .section-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-num {
+    width: 28px; height: 28px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  h2 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  .section-body {
+    padding: 20px 24px;
+  }
+
+  .section-body p {
+    color: #9ca3b0;
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  .section-body p:last-child { margin-bottom: 0; }
+
+  ul.doc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  ul.doc-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    color: #9ca3b0;
+  }
+
+  ul.doc-list li::before {
+    content: '→';
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* Rights table */
+  .rights-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .right-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    background: rgba(79,110,247,0.05);
+    border: 1px solid rgba(79,110,247,0.12);
+    border-radius: 10px;
+  }
+
+  .right-emoji { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .right-content {}
+  .right-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .right-desc { font-size: 13px; color: var(--muted); }
+
+  /* Contact */
+  .contact-box {
+    background: linear-gradient(135deg, rgba(79,110,247,0.08), rgba(124,58,237,0.08));
+    border: 1px solid rgba(79,110,247,0.2);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .contact-box h3 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .contact-box p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .tg-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .tg-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  footer {
+    position: relative; z-index: 1;
+    text-align: center;
+    padding: 0 24px 40px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 480px) {
+    .summary-grid { grid-template-columns: 1fr 1fr; }
+    h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+
+<header>
+  <a href="https://t.me/NextStepDocsBot" class="logo">
+    <div class="logo-icon">📄</div>
+    <span class="logo-text">NextStep Docs</span>
+  </a>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="badge">Юридичні документи</div>
+    <h1>Політика конфіденційності та Умови використання</h1>
+    <p>Ми поважаємо ваші дані і прозоро пояснюємо як ними користуємось.</p>
+    <div class="updated">Оновлено: травень 2025</div>
+  </div>
+
+  <!-- Summary cards -->
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="card-icon">🔒</div>
+      <div class="card-title">Передача третім</div>
+      <div class="card-value">Ніколи</div>
+    </div>
+    <div class="summary-card">
+      <div class="card-icon">🗓️</div>
+      <div class="card-title">Зберігання</div>
+      <div class="card-value">30 днів</div>
+    </div>
+    <div class="summary-card">
+      <div class="card-icon">✏️</div>
+      <div class="card-title">Правки в тарифі</div>
+      <div class="card-value">1–2 включено</div>
+    </div>
+    <div class="summary-card">
+      <div class="card-icon">💸</div>
+      <div class="card-title">Повернення</div>
+      <div class="card-value">До початку — 100%</div>
+    </div>
+  </div>
+
+  <!-- Section 1 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Які дані ми збираємо</h2>
+    </div>
+    <div class="section-body">
+      <p>При заповненні брифу через Telegram-бота ми отримуємо наступні персональні дані:</p>
+      <ul class="doc-list">
+        <li>Ім'я та прізвище</li>
+        <li>Ціль вступу або працевлаштування (назва вузу, компанії, спеціальності)</li>
+        <li>Досвід навчання, роботи або участі в проектах</li>
+        <li>Ключові навички та сильні сторони</li>
+        <li>Бажана мова документів</li>
+        <li>Telegram username та числовий ID (технічні дані платформи)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Section 2 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>Навіщо ми збираємо ці дані</h2>
+    </div>
+    <div class="section-body">
+      <p>Ваші дані використовуються виключно для створення персоналізованого CV та мотиваційного листа відповідно до обраного тарифу.</p>
+      <p>Ми не використовуємо ваші дані для реклами, аналітики, навчання AI-моделей або будь-яких інших цілей, крім виконання вашого замовлення.</p>
+    </div>
+  </div>
+
+  <!-- Section 3 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Кому ми передаємо дані</h2>
+    </div>
+    <div class="section-body">
+      <p>Ваші дані не передаються жодним третім особам, рекламним мережам, партнерам або державним органам (окрім випадків, передбачених законодавством України).</p>
+      <p>Бриф отримує тільки виконавець замовлення (адміністратор сервісу) для безпосереднього виконання роботи.</p>
+    </div>
+  </div>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>Скільки зберігаємо дані</h2>
+    </div>
+    <div class="section-body">
+      <p>Ваші персональні дані зберігаються протягом <strong>30 календарних днів</strong> після виконання замовлення.</p>
+      <p>Після закінчення цього терміну дані видаляються з усіх систем. Ви також можете запросити дострокове видалення у будь-який момент.</p>
+    </div>
+  </div>
+
+  <!-- Section 5 — Rights -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Ваші права</h2>
+    </div>
+    <div class="section-body">
+      <div class="rights-grid">
+        <div class="right-item">
+          <div class="right-emoji">👁️</div>
+          <div class="right-content">
+            <div class="right-title">Право на доступ</div>
+            <div class="right-desc">Ви можете запросити, які дані ми маємо про вас</div>
+          </div>
+        </div>
+        <div class="right-item">
+          <div class="right-emoji">🗑️</div>
+          <div class="right-content">
+            <div class="right-title">Право на видалення</div>
+            <div class="right-desc">Ми видалимо ваші дані на першу вимогу</div>
+          </div>
+        </div>
+        <div class="right-item">
+          <div class="right-emoji">↩️</div>
+          <div class="right-content">
+            <div class="right-title">Відкликання згоди</div>
+            <div class="right-desc">Ви можете відкликати згоду на обробку в будь-який момент</div>
+          </div>
+        </div>
+        <div class="right-item">
+          <div class="right-emoji">✏️</div>
+          <div class="right-content">
+            <div class="right-title">Право на виправлення</div>
+            <div class="right-desc">Якщо дані неточні — ми їх виправимо</div>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top: 16px;">Для реалізації будь-якого права — напишіть нам у Telegram.</p>
+    </div>
+  </div>
+
+  <!-- Section 6 — Terms -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Умови надання послуг</h2>
+    </div>
+    <div class="section-body">
+      <p><strong>Що входить в тарифи:</strong></p>
+      <ul class="doc-list">
+        <li><strong>Базовий (390 грн)</strong> — мотиваційний лист, 1 мова, 1 безкоштовна правка, термін виконання 48 годин</li>
+        <li><strong>Розширений (690 грн)</strong> — CV + мотиваційний лист, 2 мови, 2 правки, термін виконання 24 години</li>
+      </ul>
+
+      <p style="margin-top: 16px;"><strong>Оплата:</strong></p>
+      <ul class="doc-list">
+        <li>Передоплата 100% через Monobank до початку роботи</li>
+        <li>Відлік терміну починається після підтвердження оплати</li>
+        <li>Додаткова правка поза тарифом — 100 грн</li>
+      </ul>
+
+      <p style="margin-top: 16px;"><strong>Повернення коштів:</strong></p>
+      <ul class="doc-list">
+        <li>Якщо роботу ще не розпочато — повне повернення 100%</li>
+        <li>Якщо роботу розпочато — повернення 50%</li>
+        <li>Після отримання готового документу — повернення не передбачено</li>
+      </ul>
+
+      <p style="margin-top: 16px;"><strong>Результат:</strong> готовий документ у форматі Google Docs або DOCX надсилається в Telegram.</p>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-box">
+    <h3>Є питання або хочете видалити дані?</h3>
+    <p>Пишіть нам — відповімо протягом 24 годин</p>
+    <a href="https://t.me/rrakkaii_pavel" class="tg-btn">
+      ✈️ Написати в Telegram
+    </a>
+  </div>
+</main>
+
+<footer>
+  © 2025 NextStep Docs · Всі права захищені
+</footer>
+
+</body>
+</html>
